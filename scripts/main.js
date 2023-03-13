@@ -1,3 +1,5 @@
+import { GuestList } from "./guests.js"
+
 const mainContainer = document.querySelector("#container")
 
 const applicationHTML = `
@@ -16,12 +18,7 @@ const applicationHTML = `
         </article>
         <section class = "guestList">
             <h2>Guest List</h2>
-            <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            </ul>
+            ${GuestList()}
         </section>
         
    </div>
