@@ -33,8 +33,6 @@ const guestsInAreas = (parkAreas) => {
     return registeredGuests
 }
 
-
-
 const findParkServices = (parkArea) => {
     let servicesPerPark = []
     for (let parkService of parkServices) {
@@ -50,14 +48,16 @@ const findParkServices = (parkArea) => {
     return allServices
 }
 
-
 export const ParkAreas = () => {
     let html = ``
     for (let parkArea of parkAreas) {
         let findParks = findParkServices(parkArea)
         html += 
-        `<div id="parkArea--${parkArea.id}">
-            ${parkArea.name} has the following services ${findParks}
+        `<div>
+            <h3 id="parkArea--${parkArea.id}">
+            ${parkArea.name}
+            </h3>
+            services provided: ${findParks}
         </div>`
     }
 
