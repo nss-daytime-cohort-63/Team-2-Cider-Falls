@@ -1,1 +1,6 @@
-import { getParkAreas } from "./database.js";
+import { getParkAreas, getParkServices } from "./database.js";
+
+
+const parks = getParkAreas()
+const parkServices = getParkServices
+
