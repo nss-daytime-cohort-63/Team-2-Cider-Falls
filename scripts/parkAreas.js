@@ -33,32 +33,41 @@ const guestsInAreas = (parkAreas) => {
     return registeredGuests
 }
 
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("service")) {
+            const [, serviceId] = itemClicked.id.split("--")
 
+        }
+        window.alert(``)
+    }
+
+)
 
 const findParkServices = (parkArea) => {
-    let servicesPerPark = []
+    let servicesPerPark = null
     for (let parkService of parkServices) {
         if (parkArea.id === parkService.parkAreaId) {
             for (let service of services) {
                 if (service.id === parkService.serviceId) {
-                    servicesPerPark.push(service.name)
+                    servicesPerPark = service
                 }
             }
         }
     }
-    let allServices = servicesPerPark.join(" and ")
-    return allServices
+    return servicesPerPark
 }
 
 
 export const ParkAreas = () => {
     let html = ``
     for (let parkArea of parkAreas) {
-        let findParks = findParkServices(parkArea)
-        html += 
-        `<div id="parkArea--${parkArea.id}">
-            ${parkArea.name} has the following services ${findParks}
-        </div>`
+        html += `<div><h3 id="parkArea--${parkArea.id}">${parkArea.name}</h3>`
+        let parkService = findParkServices(parkArea)
+        html += `<p id="parks--">${parkService.name}</p>`
+        html += `</div>`
     }
 
     return html
