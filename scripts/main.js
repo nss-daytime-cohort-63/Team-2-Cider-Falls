@@ -1,4 +1,7 @@
+import { getParkServices } from "./database.js"
 import { GuestList } from "./guests.js"
+import { ParkAreas } from "./parkAreas.js"
+
 
 const mainContainer = document.querySelector("#container")
 
@@ -8,12 +11,7 @@ const applicationHTML = `
     <article class="parkAreas">
         <section class = "areaBox">
             <h2>Park Areas</h2>
-            <div>Lodge</div>
-            <div>Lost Wolf</div>
-            <div>Chamfort River</div>
-            <div>Pine Bluff</div>
-            <div>Campgrounds</div>
-            <div>Grand River</div>
+                ${ParkAreas()}
         </section>
         </article>
         <section class = "guestList">

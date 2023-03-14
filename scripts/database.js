@@ -241,11 +241,11 @@ const database = {
 export const getParkAreas = () => {
     return database.parkAreas.map(parkAreas => ({ ...parkAreas }))
 }
-export const getparkServices = () => {
-    return database.parkServices.map(parkServices => ({ ...parkServices }))
-}
 export const getParkServices = () => {
     return database.parkServices.map(parkServices => ({ ...parkServices }))
+}
+export const getServices = () => {
+    return database.services.map(services => ({ ...services }))
 }
 export const getGuests = () => {
     return database.guests.map(guests => ({ ...guests }))
