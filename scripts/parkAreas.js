@@ -33,19 +33,6 @@ const guestsInAreas = (parkAreas) => {
     return registeredGuests
 }
 
-document.addEventListener(
-    "click",
-    (clickEvent) => {
-        const itemClicked = clickEvent.target
-        if (itemClicked.id.startsWith("service")) {
-            const [, serviceId] = itemClicked.id.split("--")
-
-        }
-        window.alert(``)
-    }
-
-)
-
 const findParkServices = (parkArea) => {
     let servicesPerPark = null
     for (let parkService of parkServices) {
@@ -60,14 +47,17 @@ const findParkServices = (parkArea) => {
     return servicesPerPark
 }
 
-
 export const ParkAreas = () => {
     let html = ``
     for (let parkArea of parkAreas) {
-        html += `<div><h3 id="parkArea--${parkArea.id}">${parkArea.name}</h3>`
-        let parkService = findParkServices(parkArea)
-        html += `<p id="parks--">${parkService.name}</p>`
-        html += `</div>`
+        let findParks = findParkServices(parkArea)
+        html += 
+        `<div>
+            <h3 id="parkArea--${parkArea.id}">
+            ${parkArea.name}
+            </h3>
+            services provided: ${findParks}
+        </div>`
     }
 
     return html
