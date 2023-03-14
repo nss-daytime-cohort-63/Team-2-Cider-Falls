@@ -1,66 +1,65 @@
-import { getParkAreas, getParkServices, getServices } from "./database.js"
+import { getParkAreas, getParkServices, getServices, getGuests } from "./database.js"
 
 const parkServices = getParkServices()
 const services = getServices()
 const parkAreas = getParkAreas()
-// 1. Display parkAreas.name
-// 2. Display park areas services...
+const guests = getGuests()
 
-// const findServices = (parkServices, services) => {
-//     let matchingServices = null
-//     for (const service of services) {
-//         if (service.id === parkServices.serviceId) {
-//             matchingServices = service
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("parkArea")) {
+            const [, parkAreaId] = itemClicked.id.split("--")
+            for (const parkArea of parkAreas) {
+                if (parkArea.id === parseInt(parkAreaId)) {
 
-//         }
-//     }
-//     return matchingServices
-// }
+                    const guestTotal = guestsInAreas(parkArea)
 
-// const findAreas = (parkServices, parkAreas) => {
-//     let matchingAreas = null
-//     for (const area of parkAreas) {
-//         if (area.id === parkServices.parkAreaId) {
-//             matchingAreas = area
-//         }
-
-//     }
-//     return matchingAreas
-// }
-
-// export const ParkServices = () => {
-//     let html = `<div>`
-//     for (let parkService of parkServices) {
-//         let area = findAreas(parkService, parkAreas)
-//         let service = findServices(parkService,services)
-//         html =+ `${area.name} has the following services: ${service.name}`
-//     }
-//     html + `</div>`
-//     return html
-// }
-
-const findParkServices = (areas) => {
-    let servicesPerPark = []
-        for (let parkService of parkServices) {
-            if (areas.id === parkService.parkAreaId) {
-                for (let service of services) {
-                    if (service.id === parkService.serviceId) {
-                        servicesPerPark.push(service.name)
-                    }
+                    window.alert(`There are ${guestTotal} guests in this area`)
                 }
             }
         }
-        let allServices = servicesPerPark.join(" and ")
-        return allServices
     }
+)
+
+const guestsInAreas = (parkAreas) => {
+    let registeredGuests = 0
+    for (const guest of guests) {
+        if (guest.parkAreaId === parkAreas.id) {
+            registeredGuests += 1
+        }
+    }
+    return registeredGuests
+}
+
+
+
+const findParkServices = (parkArea) => {
+    let servicesPerPark = []
+    for (let parkService of parkServices) {
+        if (parkArea.id === parkService.parkAreaId) {
+            for (let service of services) {
+                if (service.id === parkService.serviceId) {
+                    servicesPerPark.push(service.name)
+                }
+            }
+        }
+    }
+    let allServices = servicesPerPark.join(" and ")
+    return allServices
+}
 
 
 export const ParkAreas = () => {
     let html = ``
-    for (let areas of parkAreas) {
-        let findParks = findParkServices(areas)
-        html += `<div class="parkAreas">${areas.name} has the following services ${findParks}`
+    for (let parkArea of parkAreas) {
+        let findParks = findParkServices(parkArea)
+        html += 
+        `<div id="parkArea--${parkArea.id}">
+            ${parkArea.name} has the following services ${findParks}
+        </div>`
     }
-    html += `</div>`
+
     return html
 }
