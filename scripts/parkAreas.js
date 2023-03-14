@@ -34,17 +34,18 @@ const guestsInAreas = (parkAreas) => {
 }
 
 const findParkServices = (parkArea) => {
-    let servicesPerPark = null
+    let servicesPerPark = []
     for (let parkService of parkServices) {
         if (parkArea.id === parkService.parkAreaId) {
             for (let service of services) {
                 if (service.id === parkService.serviceId) {
-                    servicesPerPark = service
+                    servicesPerPark.push(service.name)
                 }
             }
         }
     }
-    return servicesPerPark
+    let allServices = servicesPerPark.join(" and ")
+    return allServices
 }
 
 export const ParkAreas = () => {
