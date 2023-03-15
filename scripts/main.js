@@ -7,26 +7,29 @@ import { serviceList } from "./services.js"
 const mainContainer = document.querySelector("#container")
 
 const applicationHTML = `
-<h1>Cider Falls</h1>
+<h1>🌲 Cider Falls</h1>
 <section class = "serviceList">
 <h2>Services</h2>
 ${serviceList()}
 </section>
 <div class="mainInfo">
     <article class="parkAreas">
-        <section class = "areaBox">
-            <h2>Park Areas</h2>
+    <h2>Park Areas</h2>
+        <section class="areaCard">
                 ${ParkAreas()}
         </section>
         </article>
-        <section class = "guestList">
+        <aside class = "guestList">
             <h2>Guest List</h2>
             ${GuestList()}
-        </section>
+        </aside>
         
    </div>
 
-   <footer>Info</footer>
+   <footer>
+    <p>615-555-1234  ciderfalls@parkservices.com<p>
+    <p>9876 Cider Falls Road, Unsure Wyoming</p>
+   </footer>
 `
 
 
