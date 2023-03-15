@@ -3,45 +3,80 @@ body {
 	font-family: "Comfortaa", Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
+    background-color: gainsboro;
 }
-
-h1,h2,h3,h4,h5,h6 {
+h3 {
+    color: azure;
+    font-family: "Patua One", serif;
+    letter-spacing: 2px;
+}
+h2 {
+    color: azure;
+    padding-left: 10px;
+    font-family: "Patua One", serif;
+    letter-spacing: 2px;
+}
+h1,h4,h5,h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
+}
+.serviceList {
+    font-weight: bold;
+    text-shadow: 0px 0px 2px azure;
+    width: auto;
+    border: 1px dotted rgb(0, 0, 0);
+    background-color: #3e865c;
+    border-radius: 5px;
+}
+#topservice {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+.areaCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.topservice {
+    justify-content: space-around;
 }
 
 .mainInfo {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    
 }
 
 .parkAreas {
-    flex-basis: 24%;
-    margin: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-right: 2rem;
+    margin-top: 2rem;
     border: 1px dotted rgb(0, 0, 0);
+    background-color: #3e865c;
+    border-radius: 5px;
 }
 
 .parkAreas div {
     width: 300px;
-    height: 200px;
-    margin: 5px;
-    background-color: lightblue;
+    height: 100px;
+    margin: 5px 5px;
+    padding: 5px 10px;
+    background-color: #8eae9b;
+    border-radius: 5px;
 }
 
 .guestList {
+    width: 20%;
+    margin-top: 2rem;
     padding: 1rem 5rem;
-    border: 1px dotted rgb(0, 0, 0);
-    
+    background-color: #8eae9b;
+    border-radius: 5px;
 }
 
 footer {
     padding: 1rem 5rem;
-    border: 1px dotted black;
 }
-
-
-
-
-

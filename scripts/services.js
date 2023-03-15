@@ -43,30 +43,13 @@ document.addEventListener(
 
 
 export const serviceList = () => {
-    let servicesHTML = "<ul>"
+    let servicesHTML = `<ul id="topservice">`
 
     for (const service of services) {
-        servicesHTML += `<li id = "service--${service.id}">${service.name}</li>`
+        servicesHTML += `<li class="topservice" id="service--${service.id}">${service.name}</li>`
     }
 
     servicesHTML += "</ul>"
 
     return servicesHTML
 }
-
-
-
-// const findParkServices = (parkArea) => {
-//     let servicesPerPark = []
-//     for (let parkService of parkServices) {
-//         if (parkArea.id === parkService.parkAreaId) {
-//             for (let service of services) {
-//                 if (service.id === parkService.serviceId) {
-//                     servicesPerPark.push(service.name)
-//                 }
-//             }
-//         }
-//     }
-//     let allServices = servicesPerPark.join(" and ")
-//     return allServices
-// }
